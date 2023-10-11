@@ -84,7 +84,7 @@ class Cart:
         self.products = {}
 
     def get_total_price(self, product: Product) -> float:
-        return self.products[product] * product.price
+        return sum([quantity * product.price for product, quantity in self.products.items()])
 
     def buy(self, quantity):
         """
