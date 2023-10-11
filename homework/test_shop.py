@@ -94,6 +94,14 @@ class TestCart:
         assert cart.products.get(product) == 10
         assert cart.get_total_price(product) == 1000
 
+    def test_get_sum_total_price(self, product, cart):
+        #проверка на получение общей стоимости корзины
+        cart.add_product(product, 10)
+        assert cart.products.get(product) == 10
+        cart.add_product(product, 10)
+        assert cart.products.get(product) == 20
+        assert cart.get_total_price(product) == 2000
+
     def test_buy_product_in_cart(self, product, cart):
         #проверка на покупку quantity продуктов в корзине
         cart.add_product(product, buy_count=10)
